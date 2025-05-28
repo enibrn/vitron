@@ -40,8 +40,12 @@ workspace/
 ├── .vitron/
 │   └── config.json
 └── notes/
-    └── (note files)
+    ├── assets/
+    │   └── images/
+    └── index.md
 ```
+
+The `index.md` file serves as the main entry point and workspace overview.
 
 #### Configuration Example
 
@@ -84,6 +88,50 @@ workspace/
 - Smart caching
 - Async/parallel operations where possible
 - Optimization for large workspaces
+
+## Development Approach
+
+### Test-Driven Development (TDD)
+
+This project follows a strict TDD approach to ensure reliability and maintainability:
+
+#### Testing Strategy
+
+- **Unit Tests**: Each component (CLI Parser, Note Manager, Hierarchy Scanner) has comprehensive unit tests
+- **Integration Tests**: End-to-end testing of command flows and file operations
+- **Tab Completion Tests**: Automated testing of autocomplete scenarios with mock file systems
+- **Performance Tests**: Benchmarking for large workspace scenarios
+
+#### Development Workflow
+
+1. **Red**: Write failing tests that define the expected behavior
+2. **Green**: Implement minimal code to make tests pass
+3. **Refactor**: Improve code quality while keeping tests green
+4. **Repeat**: Iterate for each feature increment
+
+#### Test Structure
+
+```text
+tests/
+├── unit/
+│   ├── cli-parser.test.ts
+│   ├── note-manager.test.ts
+│   ├── hierarchy-scanner.test.ts
+│   └── tab-completion.test.ts
+├── integration/
+│   ├── command-flows.test.ts
+│   └── file-operations.test.ts
+└── performance/
+    └── large-workspace.test.ts
+```
+
+#### Key Testing Principles
+
+- **Fast Feedback**: Tests run quickly with minimal setup
+- **Isolated**: Each test is independent and can run in isolation
+- **Deterministic**: Tests produce consistent results across environments
+- **Comprehensive**: High code coverage with focus on edge cases
+- **Mock File System**: Use in-memory file system for reliable, fast testing
 
 ## Future TODOs
 
