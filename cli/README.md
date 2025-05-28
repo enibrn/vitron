@@ -34,11 +34,18 @@ bun run index.ts version
 # Say hello
 bun run index.ts hello
 bun run index.ts hello Alice
+
+# Initialize new project
+bun run index.ts init
+bun run index.ts init my-project
 ```
 
 ### Available Commands
 
 - `help` - Show help information
+- `version` - Show version information  
+- `hello [name]` - Say hello with an optional name
+- `init [project-name]` - Initialize a new Vitron project structure
 - `version` - Show version information  
 - `hello [name]` - Say hello with an optional name
 
@@ -57,6 +64,8 @@ bun run test:watch
 
 ## Project Structure
 
+### CLI Structure
+
 ```text
 cli/
 ├── index.ts         # Main CLI entry point
@@ -65,6 +74,35 @@ cli/
 ├── tsconfig.json    # TypeScript configuration
 └── README.md        # This file
 ```
+
+### Generated Project Structure
+
+When you run `bun run index.ts init my-project`, the following structure is created:
+
+```text
+my-project/
+├── src/
+│   └── index.ts        # Main entry point
+├── tests/
+│   └── index.test.ts   # Test files
+├── docs/               # Documentation
+├── config/             # Configuration files
+├── package.json        # Package configuration
+├── tsconfig.json       # TypeScript configuration
+├── README.md           # Project README
+└── .gitignore          # Git ignore rules
+```
+
+## Init Command Features
+
+The `init` command creates a complete, ready-to-use TypeScript project with:
+
+- **TypeScript configuration** with modern ES2022 target
+- **Package.json** with useful scripts (dev, build, test)
+- **Test setup** with Bun's built-in testing framework
+- **Source code template** with example functions
+- **Documentation** with README and folder structure
+- **Git configuration** with comprehensive .gitignore
 
 ## Adding New Commands
 
