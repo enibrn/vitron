@@ -1,37 +1,14 @@
-# dependencies (bun install)
 node_modules
 
-# output
-out
-dist
-*.tgz
+# dendron
+example/.dendron.*
+example/build
+example/seeds
+example/.next
+example/pods/service-connections
 
-# playground (not archived)
-playground/
-
-# code coverage
-coverage
-*.lcov
-
-# logs
-logs
-_.log
-report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
-
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
-
-# caches
-.eslintcache
-.cache
-*.tsbuildinfo
-
-# IntelliJ based IDEs
-.idea
-
-# Finder (MacOS) folder config
-.DS_Store
+# vitepress
+example/.vitepress/cache
+example/.vitepress/dist
+example/.vitepress/test/manual/temp
+example/.vitepress/redirects-data.json

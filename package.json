@@ -1,7 +1,17 @@
 {
   "name": "vitron",
   "private": true,
-  "workspaces": [
-    "cli"
-  ]
+  "scripts": {
+    "dev": "vitepress dev example"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.8",
+    "vitepress": "2.0.0-alpha.8"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "markdown-it-async": "^2.2.0",
+    "markdown-it-wikilinks": "^1.4.0",
+    "remove-markdown": "^0.6.2"
+  }
 }
