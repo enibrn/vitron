@@ -2,13 +2,13 @@
   <div class="blog-home">
     <BlogSection
       title="Recently Created"
-      :posts="newlyCreatedPosts"
+      :posts="newlyCreatedBlogPosts"
       timestamp-field="createdTimestamp"
     />
 
     <BlogSection
       title="Recently Updated"
-      :posts="newlyUpdatedPosts"
+      :posts="newlyUpdatedBlogPosts"
       timestamp-field="updatedTimestamp"
     />
   </div>
@@ -19,8 +19,11 @@
   lang="ts"
 >
 import BlogSection from './BlogSection.vue';
-import newlyCreatedPosts from '../../generated/newly-created-blog-posts.json';
-import newlyUpdatedPosts from '../../generated/newly-updated-blog-posts.json';
+import { useData } from 'vitepress';
+const { theme } = useData();
+
+const newlyCreatedBlogPosts = theme.value.newlyCreatedBlogPosts || [];
+const newlyUpdatedBlogPosts = theme.value.newlyUpdatedBlogPosts || [];
 </script>
 
 <style scoped>

@@ -1,6 +1,7 @@
 {
   "name": "vitron",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev example"
   },

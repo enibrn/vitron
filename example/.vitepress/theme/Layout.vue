@@ -20,12 +20,13 @@
 import DefaultTheme from 'vitepress/theme';
 import { inBrowser, useData, useRouter, withBase } from 'vitepress';
 import AsideTable from './components/AsideTable.vue';
-import { watch, computed, onMounted } from 'vue';
-import redirects from '../generated/redirects.json';
+import { watch } from 'vue';
 
 const { Layout } = DefaultTheme;
-const { page, frontmatter, site } = useData();
+const { page, frontmatter, site, theme } = useData();
 const { go, route } = useRouter();
+
+const redirects = theme.value.redirects || {};
 
 watch(
   () => page.value.isNotFound,

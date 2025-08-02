@@ -38,14 +38,14 @@ export async function Vpd(
   await themeDataProvider.resolveThemeData();
 
   // write the theme data to be used in the theme
-  const generatedDataDir = path.join(config.rootDir || '', '.vitepress', 'generated');
-  await mkdir(generatedDataDir, { recursive: true });
-  const writeMyDataFile = async (fileName: string, data: any) => {
-    await writeFile(`${generatedDataDir}/${fileName}.json`, JSON.stringify(data, null, 2), 'utf-8');
-  };
-  await writeMyDataFile('redirects', themeDataProvider.redirects);
-  await writeMyDataFile('newly-created-blog-posts', themeDataProvider.newlyCreatedBlogPosts);
-  await writeMyDataFile('newly-updated-blog-posts', themeDataProvider.newlyUpdatedBlogPosts);
+  // const generatedDataDir = path.join(config.rootDir || '', '.vitepress', 'generated');
+  // await mkdir(generatedDataDir, { recursive: true });
+  // const writeMyDataFile = async (fileName: string, data: any) => {
+  //   await writeFile(`${generatedDataDir}/${fileName}.json`, JSON.stringify(data, null, 2), 'utf-8');
+  // };
+  // await writeMyDataFile('redirects', themeDataProvider.redirects);
+  // await writeMyDataFile('newly-created-blog-posts', themeDataProvider.newlyCreatedBlogPosts);
+  // await writeMyDataFile('newly-updated-blog-posts', themeDataProvider.newlyUpdatedBlogPosts);
 
   // Write the index file needed for VitePress to render the home page
   const indexFilePath =  path.join(docsPath, 'index.md');
@@ -63,7 +63,10 @@ layout: home
       sidebar: configBuilder.sidebar,
       search: {
         provider: 'local'
-      }
+      },
+      redirects: themeDataProvider.redirects,
+      newlyCreatedBlogPosts: themeDataProvider.newlyCreatedBlogPosts,
+      newlyUpdatedBlogPosts: themeDataProvider.newlyUpdatedBlogPosts,
     },
     markdown: {
       config: (md) => {
