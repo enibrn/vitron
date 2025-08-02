@@ -1,12 +1,13 @@
-import { Vpd, VpdConfig } from './vpd';
+import { VitronConfigGenerator, VitronOptions } from '../../src/config-generator/index';
 import { defineConfig } from 'vitepress';
 
-const config: VpdConfig = {
+const config: VitronOptions = {
   title: "Vitron Example",
   baseUrl: '/vitron/',
   srcDir: 'notes',
   rootDir: 'example',
 };
 
-const configs = await Vpd(config);
+const configs = await VitronConfigGenerator(config);
+console.log('Generated VitePress config:', configs);
 export default defineConfig(configs);

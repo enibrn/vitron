@@ -11,7 +11,7 @@
         class="blog-post"
       >
         <h3>
-          <a :href="post.link">{{ post.title }}</a>
+          <a :href="withBase(post.link)">{{ post.title }}</a>
         </h3>
         <p class="excerpt">{{ post.excerpt }}</p>
         <div class="meta">
@@ -25,8 +25,12 @@
   </section>
 </template>
 
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 import { useDateUtils } from '../composables/useDateUtils';
+import { withBase } from 'vitepress';
 
 interface BlogPost {
   fileName: string;
